@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>iSport</title>
+</head>
+    <body>
+        <div class="wrapper">
+            <h1>Hello {{session['fname']}}!</h1>
+            <p><a href='/logout'>Logout</a> <a href='/event/new'><button>Add a sporting event</button></a> </p>
+            <br>
+            <h2>Your Events:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Location</th>
+                        <th>Attendees</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in event %}
+                    <tr>
+                       <td><a href='/sportdata/{{sport["id"]}}/data'>{{event['event name']}}</a></td>
+                        <td>{{event['location']}}</td>
+                        <td>{{event['attendees']}}</td>
+                        <td>{{event['date']}}</td>
+                        <td>
+                            <a href ='/trips/{{trip["id"]}}/remove'>remove</a>
+                            <a href ='/trips/{{trip["id"]}}/edit'>edit</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+            
+    </body>
+</html>
